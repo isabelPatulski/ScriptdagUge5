@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul id="my-ul">
+
+</ul>
+
+<form>
+    <input type="text" id="txt"/>
+    <button id= "add-btn">Add Name</button>x
+</form>
+
+<script>
+    const names = ["Flemming", "Anja", "Isabel", "Sine"]
+    function makeListItems() {
+        const listItems = names.map(name => "<li>" + name + "</li>")
+        const itemsAsString = listItems.join("\n")
+        const myUl = document.getElementById("my-ul")
+        myUl.innerHTML = itemsAsString
+    }
+    makeListItems()
+    function addName(evt){
+        evt.preventDefault()
+        const inputField = document.getElementById(("txt"))
+        const newName = inputField.value
+        names.push(newName)
+        makeListItems()
+    }
+    document.getElementById("add-btn").onclick = addName
+
+
+</script>
+
+</body>
+</html>
